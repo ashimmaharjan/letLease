@@ -12,7 +12,7 @@ const Search = () => {
 
   const debouncedSearch = useDebouncedCallback(
     (text: string) => router.setParams({ query: text }),
-    500,
+    500
   );
 
   const handleSearch = (text: string) => {
@@ -20,7 +20,7 @@ const Search = () => {
     debouncedSearch(text);
   };
   return (
-    <View className="flex flex-row items-center justify-between w-full px-4 py-2 rounded-lg bg-accent-100 border border-primary-100 mt-5">
+    <View className="flex flex-row items-center justify-between w-full px-4 py-2 rounded-lg bg-accent-100 border border-slate-400 mt-5">
       <View className="flex-1 flex flex-row items-center justify-start z-50">
         <Image source={icons.search} className="size-5" />
         <TextInput

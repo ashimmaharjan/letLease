@@ -51,6 +51,17 @@ export default function Index() {
     });
   }, [params.filter, params.query]);
 
+  const getGreetingMessage = () => {
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
+      return "Good Morning ☀️";
+    } else if (currentHour < 18) {
+      return "Good Afternoon 🌤️";
+    } else {
+      return "Good Evening 🌙";
+    }
+  };
+
   return (
     <SafeAreaView className="bg-white h-full px-5">
       <View className="flex flex-row items-center justify-between mt-5">
@@ -60,8 +71,8 @@ export default function Index() {
             className="size-12 rounded-full"
           />
           <View className="flex flex-col items-start ml-2 justify-center">
-            <Text className="text-xs font-rubik text-black-100">
-              Good Morning
+            <Text className="text-sm font-rubik text-black-200">
+              {getGreetingMessage()}
             </Text>
             <Text className="text-base font-rubik-medium text-black-300">
               {user?.name}
@@ -90,8 +101,8 @@ export default function Index() {
           )
         }
         ListHeaderComponent={
-          <View>
-            <View className="mt-5">
+          <View className="mt-5">
+            <View>
               <View className="flex flex-row items-center justify-between">
                 <Text className="text-xl font-rubik-bold text-black-300">
                   Featured

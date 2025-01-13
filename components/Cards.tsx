@@ -60,7 +60,7 @@ export const Card = ({
   return (
     <TouchableOpacity
       onPress={onPress}
-      className="flex flex-1 w-full mt-4 px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative"
+      className="flex flex-1 w-full mt-4 px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative border-[0.5px] border-slate-400"
     >
       <View className="flex flex-row items-center absolute px-2 top-5 right-5 bg-white/90 p-1 rounded-full z-50">
         <Image source={icons.star} className="size-2.5" />
@@ -87,6 +87,49 @@ export const Card = ({
             tintColor="#191d31"
           />
         </View>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+export const FlatCard = ({
+  item: { image, rating, name, address, price },
+  onPress,
+}: Props) => {
+  return (
+    <TouchableOpacity
+      onPress={onPress}
+      className="flex flex-1 flex-row justify-between w-full px-5 py-4 rounded-lg bg-white shadow-md shadow-black-100/70 border-[0.5px] border-slate-400"
+    >
+      <View className="flex flex-row gap-3 w-[80%] overflow-clip">
+        <View className="relative">
+          <Image source={{ uri: image }} className="size-36 rounded-lg" />
+          <View className="flex flex-row items-center absolute px-2 top-3 right-2 bg-white/90  rounded-full z-50">
+            <Image source={icons.star} className="size-3" />
+            <Text className="text-[10px] font-rubik-bold text-primary-300 ml-0.5 mt-0.5">
+              {rating}
+            </Text>
+          </View>
+        </View>
+
+        <View className="flex flex-col gap-1 h-36 justify-center w-[45%]">
+          <Text className="text-xl font-rubik-bold text-black-300">{name}</Text>
+          <Text className="text-xs font-rubik text-black-200 line-clamp-2">
+            {address}
+          </Text>
+        </View>
+      </View>
+
+      <View className="flex flex-col py-3 w-[20%]">
+        <Image
+          source={icons.heart}
+          className="size-6 ml-auto mr-2"
+          tintColor="#191d31"
+        />
+
+        <Text className="text-base font-rubik-bold text-primary-300 mt-auto text-center">
+          ${price}
+        </Text>
       </View>
     </TouchableOpacity>
   );
