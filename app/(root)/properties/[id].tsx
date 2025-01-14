@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   ScrollView,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 import React from "react";
 import { router, useLocalSearchParams } from "expo-router";
@@ -26,10 +27,10 @@ const Property = () => {
   });
 
   return (
-    <View className="relative">
+    <SafeAreaView className="relative">
       <ScrollView className="h-full bg-white" contentContainerClassName="pb-32">
         {/* Property Image */}
-        <View className="relative z-10 rounded-t-[30px] overflow-hidden">
+        <View className="relative z-10">
           <Image source={{ uri: property?.image }} className="w-full h-96" />
 
           <Image
@@ -279,7 +280,7 @@ const Property = () => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
