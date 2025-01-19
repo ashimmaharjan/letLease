@@ -22,9 +22,9 @@ export default function RootLayout() {
 
   if (!fontsLoaded) return null;
 
-  return(
-  <GlobalProvider>
-    <Stack screenOptions={{ headerShown: false }} />;
-  </GlobalProvider>
+  return (
+    <GlobalProvider>
+      <Stack screenOptions={{ headerShown: false }} />
+    </GlobalProvider>
   );
 }

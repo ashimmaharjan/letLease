@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  TextInput,
 } from "react-native";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
@@ -56,7 +57,7 @@ const FilterModal = ({ visibility, onClose }: Props) => {
       visible={visibility}
     >
       <View
-        style={{ height: height / 1.15 }}
+        style={{ height: height / 1.05 }}
         className="absolute bottom-0 w-full bg-slate-100 rounded-t-2xl border border-t-gray-500 p-5 h-full"
       >
         {/* Header */}
@@ -87,6 +88,25 @@ const FilterModal = ({ visibility, onClose }: Props) => {
             </Text>
             <View className="mt-5">
               <Image source={images.barChart} className="w-full h-20" />
+            </View>
+            <View className="flex flex-row justify-between items-center mt-2">
+              <View className="flex flex-row items-center border text-center rounded-md border-black-200 pl-2">
+                <Text className="text-black-300 px-2">$</Text>
+                <TextInput
+                  placeholder="Min"
+                  keyboardType="numeric"
+                  className="w-28 h-auto"
+                />
+              </View>
+
+              <View className="flex flex-row items-center border text-center rounded-md border-black-200 pl-2">
+                <Text className="text-black-300 px-2">$</Text>
+                <TextInput
+                  placeholder="Max"
+                  keyboardType="numeric"
+                  className="w-28 h-auto"
+                />
+              </View>
             </View>
           </View>
 
